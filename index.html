@@ -147,10 +147,7 @@
                     tool.strokeStyle="black";
                     
            }
-           if(cTool!="pencil"){
-            cTool = "pencil";
-           }
-            if (cTool == "pencil") {
+           if (cTool == "pencil") {
                 // second click
                 // options show 
                 options[0].style.display = "flex";
@@ -167,6 +164,10 @@
                     tool.lineWidth="40";
                 })
                     } 
+           if(cTool!="pencil"){
+            cTool = "pencil";
+           }
+           
                 })
                 pencil.addEventListener("dblclick", function (e) {  
                 for (let i = 0; i < options.length; i++) {
