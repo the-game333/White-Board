@@ -16,6 +16,7 @@
         <div class="toolbar">
             <div class="tool" id="pencil">
                 <img src="Black_Pencil.svg" alt="" class="tool-img">
+                <div>🔽</div>
                 <div class="size-box">
                     <!-- .size1+.size2+.size3 -->
                     <div class="size1 size"></div>
@@ -142,7 +143,7 @@
         let options = document.querySelectorAll(".size-box");
         // identify -> click  -> again click
         pencil.addEventListener("click", function (e) {
-           if(tool.strokeStyle== "white"){
+           if(tool.strokeStyle!= "black"){
                     tool.strokeStyle="black";
            }
             if (cTool == "pencil") {
@@ -150,30 +151,32 @@
                 // options show 
                 options[0].style.display = "flex";
                 size1.addEventListener("click",function(){
-            tool.lineWidth="5";
-        })
-        size2.addEventListener("click",function(){
-            tool.lineWidth="15";
-        })
-        size3.addEventListener("click",function(){
-            tool.lineWidth="25";
-        })
-        size4.addEventListener("click",function(){
-            tool.lineWidth="40";
-        })
-            }
-            else {
-                
+                tool.lineWidth="5";
+                })
+                size2.addEventListener("click",function(){
+                    tool.lineWidth="15";
+                })
+                size3.addEventListener("click",function(){
+                    tool.lineWidth="25";
+                })
+                size4.addEventListener("click",function(){
+                    tool.lineWidth="40";
+                })
+                    } 
+                })
+                pencil.addEventListener("dblclick", function (e) {  
                 for (let i = 0; i < options.length; i++) {
 
                     options[i].style.display = "none";
-                }
+                      }
                 // eraser.style.border = "1px solid red";
                 cTool = "pencil";
-            }
-        })
+                 })
+        
         eraser.addEventListener("click", function (e) {
-            
+            if(tool.strokeStyle!= "white"){
+                    tool.strokeStyle="white";
+           }
             if (cTool == "eraser") {
                 // second click
                 // options show 
@@ -190,7 +193,10 @@
         size4.addEventListener("click",function(){
             tool.lineWidth="40";
         })
-            } else {
+            } 
+           })
+           
+           eraser.addEventListener("dblclick", function (e) {
 
                 // eraser.style.border = "1px solid red";
                 // koi aur clicked aur usko options visible to wo remove ho jaaye 
@@ -200,7 +206,7 @@
                     options[i].style.display = "none";
 
                 }
-            }
+            
         })
         rect.addEventListener("click", function (e) {
             if(tool.strokeStyle == "white"){
